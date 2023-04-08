@@ -8,7 +8,10 @@
     <link rel="icon" href="https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+    <link
+            rel="stylesheet"
+            href="./assets/fonts/themify-icons/themify-icons.css"
+        />
 
 </head>
 <body>
@@ -33,7 +36,7 @@
                 </li>
             </ul>
             <!-- End: Nav -->
-            
+
             <!-- Mobile menu button -->
             <div id="mobile-menu" class="mobile-menu-btn">
                 <i class="menu-icon ti-menu"></i>
@@ -43,7 +46,7 @@
             <div class="search-btn">
                 <i class="search-icon ti-search">
                 </i>
-            </div> 
+            </div>
         </div>
 
         <div id="slider">
@@ -82,7 +85,7 @@
                 <div class="content-section">
                     <h2 class="section-heading text-white">TOUR DATES</h2>
                     <p class="section-sub-heading text-white">Remember to book your tickets!</p>
-                    
+
                     <!-- Tickets -->
                     <ul class="ticket-list">
                         <li>September <span class="sold-out">Sold out</span> </li>
@@ -125,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phím tắt cmd + D để chọn nhiều class, option + shift + mũi tên để chọn đằng sau -->
 
             <!-- Begin: Contact section -->
@@ -136,8 +139,8 @@
                 <div class="row contact-content">
                     <div class="col col-half s-col-full contact-info">
                         <p><i class="ti-location-pin"></i>Chicago, US</p>
-                        <p><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
-                        <p><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
+                        <p><i class="ti-mobile"></i>Phone: <a href="tel: +00 151515">+00 151515</a></p>
+                        <p><i class="ti-email"></i>Email: <a href="mailto: mail@mail.com">mail@mail.com</a></p>
                     </div>
 
                     <div class="col col-half s-col-full contact-form">
@@ -169,7 +172,7 @@
 
         <div id="footer">
             <div class="social-list">
-                <a href=""><i class="ti-facebook"></i></a>
+                <a href="https://www.facebook.com/huuduy8203/"><i class="ti-facebook"></i></a>
                 <a href=""><i class="ti-instagram"></i></a>
                 <a href=""><i class="ti-youtube"></i></a>
                 <a href=""><i class="ti-pinterest"></i></a>
@@ -222,7 +225,7 @@
         const modal = document.querySelector('.js-modal')
         const modalContainer = document.querySelector('.js-modal-container')
         const modalClose = document.querySelector('.js-modal-close')
-        
+
         // Hàm hiện thị modal mua vé (thêm class open vào modal)
         function showBuyTickets() {
             modal.classList.add('open')
@@ -232,7 +235,7 @@
         function hideBuyTickets() {
             modal.classList.remove('open')
         }
-        
+
         // Lặp qua từng thẻ button và nghe hành vi click
         for (const buyBtn of buyBtns) {
             buyBtn.addEventListener('click', showBuyTickets)
@@ -252,7 +255,7 @@
         var header = document.getElementById('header')
         var mobileMenu = document.getElementById('mobile-menu')
         var headerHeight = header.clientHeight;
-        
+
         mobileMenu.onclick = function() {
             var isClosed = header.clientHeight === headerHeight;
             if (isClosed) {
@@ -269,16 +272,50 @@
 
             var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
             // Nếu có class liền kề và class liền kề đó chứa subnav thì biết đc isParentMenu là menu cha
-            
+
             menuItem.onclick = function() {
                 if (!isParentMenu){
-                    event.preventDefault(); 
+                    event.preventDefault();
                 } else {
                     header.style.height = null;
                     // ẩn menu
                 }
             }
         }
+
+        // Click href attribute to jump to the div element with the id
+
+        // Get the Home link
+        const homeLink = document.querySelector('a[href="#"]');
+        // Listen for a click event on the Home link
+        homeLink.addEventListener('click', function(event) {
+            // Prevent the default behavior of jumping to the top of the page
+            event.preventDefault();
+            // Scroll the page to the top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        var bandAnchor = document.querySelector('a[href="#band"]');
+        bandAnchor.addEventListener('click', function(event) {
+            event.preventDefault();
+            var bandDiv = document.getElementById('band');
+            bandDiv.scrollIntoView({behavior: 'smooth'});
+        });
+
+        var bandAnchor = document.querySelector('a[href="#tour"]');
+        bandAnchor.addEventListener('click', function(event) {
+            event.preventDefault();
+            var bandDiv = document.getElementById('tour');
+            bandDiv.scrollIntoView({behavior: 'smooth'});
+        });
+
+        var bandAnchor = document.querySelector('a[href="#contact"]');
+        bandAnchor.addEventListener('click', function(event) {
+            event.preventDefault();
+            var bandDiv = document.getElementById('contact');
+            bandDiv.scrollIntoView({behavior: 'smooth'});
+        });
+
     </script>
 </body>
 </html>
